@@ -1,25 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
+import { DocExplorer } from 'graphiql';
+import { buildClientSchema, validateSchema } from 'graphql';
+import jsonSchema from './full-schema.json';
 import './App.css';
+import 'graphiql/graphiql.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const schema = buildClientSchema(jsonSchema)
+if (!validateSchema(schema)) {
+    throw new Error("Invalid schema")
 }
+
+const App = () => <div className="graphiql-container"><div className="docExplorerWrap" style={{display: "block", width: "100%"}}><DocExplorer schema={schema} /></div></div>;
 
 export default App;
