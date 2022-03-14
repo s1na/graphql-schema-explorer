@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Schema explorer",
+  "name": "Explorer for Ethereum's GraphQL schema",
   "icons": [
     {
       "src": "favicon.ico",
