@@ -1,23 +1,41 @@
 import React from 'react';
 import { DocExplorer } from 'graphiql';
 import { buildClientSchema, validateSchema } from 'graphql';
-import jsonSchema from './full-schema.json';
 import './App.css';
 import 'graphiql/graphiql.min.css';
 
-const schemaUrl = 'https://github.com/s1na/graphql-schema-explorer/blob/5829ee7dd23175e7e5758b008e6904d3b8aee305/src/full-schema.json'
-
-const schema = buildClientSchema(jsonSchema);
-if (!validateSchema(schema)) {
-    throw new Error("Invalid schema");
-}
-
 export default class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            schema: null
+        }
+    }
+
+    componentDidMount() {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+              get: (searchParams, prop) => searchParams.get(prop),
+        });
+        const schemaUrl = params.url;
+        if (schemaUrl === null) {
+            return
+        }
+        fetch(schemaUrl)
+            .then(response => response.json())
+            .then(data => {
+                const schema = buildClientSchema(data);
+                if (!validateSchema(schema)) {
+                    console.log('invalid schema')
+                }
+                this.setState({ schema: schema })
+            })
+    }
+
     render() {
         return (
             <div className="graphiql-container">
                 <div className="docExplorerWrap" style={{display: "block", width: "100%"}}>
-                    <DocExplorer schema={schema} />
+                    <DocExplorer schema={this.state.schema} />
                 </div>
             </div>
         );
