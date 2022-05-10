@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/graphql-schema-explorer/static/css/main.027395d5.css",
-    "main.js": "/graphql-schema-explorer/static/js/main.664e314f.js",
-    "static/js/787.6917edd4.chunk.js": "/graphql-schema-explorer/static/js/787.6917edd4.chunk.js",
-    "index.html": "/graphql-schema-explorer/index.html",
-    "main.027395d5.css.map": "/graphql-schema-explorer/static/css/main.027395d5.css.map",
-    "main.664e314f.js.map": "/graphql-schema-explorer/static/js/main.664e314f.js.map",
-    "787.6917edd4.chunk.js.map": "/graphql-schema-explorer/static/js/787.6917edd4.chunk.js.map"
+    "main.css": "/static/css/main.027395d5.css",
+    "main.js": "/static/js/main.26b0cbf1.js",
+    "static/js/787.6917edd4.chunk.js": "/static/js/787.6917edd4.chunk.js",
+    "index.html": "/index.html",
+    "main.027395d5.css.map": "/static/css/main.027395d5.css.map",
+    "main.26b0cbf1.js.map": "/static/js/main.26b0cbf1.js.map",
+    "787.6917edd4.chunk.js.map": "/static/js/787.6917edd4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.027395d5.css",
-    "static/js/main.664e314f.js"
+    "static/js/main.26b0cbf1.js"
   ]
 }
